@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>记一次在kali安装docker | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在一次项目中，被CT大佬吐槽kali版本旧。怒更最新版本，于是又要重新安装docker。网上靠谱的文档不多，于是记录下来方便查询。  step.1 安装https协议、CA证书、dirmngr123sudo apt-get updatesudo apt-get install -y apt-transport-https ca-certificatessudo apt-get install d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次在kali安装docker">
+<meta property="og:url" content="http://example.com/2020/03/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8kali%E5%AE%89%E8%A3%85docker/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在一次项目中，被CT大佬吐槽kali版本旧。怒更最新版本，于是又要重新安装docker。网上靠谱的文档不多，于是记录下来方便查询。  step.1 安装https协议、CA证书、dirmngr123sudo apt-get updatesudo apt-get install -y apt-transport-https ca-certificatessudo apt-get install d">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-16T11:42:49.000Z">
+<meta property="article:modified_time" content="2021-09-12T16:04:37.986Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-记一次在kali安装docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8kali%E5%AE%89%E8%A3%85docker/" class="article-date">
+  <time class="dt-published" datetime="2020-03-16T11:42:49.000Z" itemprop="datePublished">2020-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      记一次在kali安装docker
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在一次项目中，被CT大佬吐槽kali版本旧。怒更最新版本，于是又要重新安装docker。网上靠谱的文档不多，于是记录下来方便查询。</p>
+</blockquote>
+<h1 id="step-1-安装https协议、CA证书、dirmngr"><a href="#step-1-安装https协议、CA证书、dirmngr" class="headerlink" title="step.1 安装https协议、CA证书、dirmngr"></a>step.1 安装https协议、CA证书、dirmngr</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y apt-transport-https ca-certificates</span><br><span class="line">sudo apt-get install dirmngr</span><br></pre></td></tr></table></figure>
+
+<h1 id="step-2-添加GPG密钥并添加更新源"><a href="#step-2-添加GPG密钥并添加更新源" class="headerlink" title="step.2 添加GPG密钥并添加更新源"></a>step.2 添加GPG密钥并添加更新源</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">sudo echo &#x27;deb https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/ buster stable&#x27; | sudo tee /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure>
+
+<h1 id="step-3-系统更新以及安装docker"><a href="#step-3-系统更新以及安装docker" class="headerlink" title="step.3 系统更新以及安装docker"></a>step.3 系统更新以及安装docker</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
+
+<h1 id="step-4-启动docker服务器"><a href="#step-4-启动docker服务器" class="headerlink" title="step.4 启动docker服务器"></a>step.4 启动docker服务器</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure>
+
+<h1 id="step-5-安装compose"><a href="#step-5-安装compose" class="headerlink" title="step.5 安装compose"></a>step.5 安装compose</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker-compose</span><br></pre></td></tr></table></figure>
+<p>至此安装完毕。<code>sodu docker version</code>可查看docker版本信息。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%9C%A8kali%E5%AE%89%E8%A3%85docker/" data-id="cktmwp00s000cjgm6blzg8opa" data-title="记一次在kali安装docker" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/09/%E5%88%9B%E5%BB%BAgit%E5%88%86%E6%94%AF%E5%90%8C%E6%AD%A5hexo%E6%BA%90%E6%96%87%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          创建git分支同步hexo源文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/01/SourceMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">记一次SourceMap前端源码泄露</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jekyll-update/">jekyll update</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/blog/" style="font-size: 10px;">blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/01/Mysql%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5%E4%B8%AD%E7%9A%84sleep%E5%87%BD%E6%95%B0/">Mysql延时注入中的sleep函数</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/23/%E5%8F%8D%E5%BC%B9shell%E7%9A%84%E5%8E%9F%E7%90%86/">反弹shell的原理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/22/%E8%AE%B0%E4%B8%80%E6%AC%A1Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E5%A4%8D%E7%8E%B0/">记一次Redis未授权访问复现</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/19/codimd%E6%90%AD%E5%BB%BA%E4%B9%8Bmysql/">codimd搭建之mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/MAT%E5%88%86%E6%9E%90jvm%E5%A0%86%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE/">MAT分析jvm堆实时数据</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
